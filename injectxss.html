@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+<title>Parent Frame</title>
+
+</head>
+
+<body>
+
+<h1>Parent Frame</h1>
+
+<iframe id="childFrame" src="http://members.localhost/Content/Administration/SalesforceConnectedAppDetails.aspx" width="1000" height="1000" onload="executeCodeInChildFrame()"></iframe>
+
+<script>
+
+function executeCodeInChildFrame() {
+
+var childFrame = document.getElementById('childFrame');
+
+var childWindow = childFrame.contentWindow;
+
+// Base64-encoded JavaScript code
+
+var encodedCode = "dmFyIHVybCA9ICdodHRwczovL2xvZ2luLnNhbGVzZm9yY2UuY29tL3NlcnZpY2VzL29hdXRoMi9hdXRob3JpemU/cmVzcG9uc2VfdHlwZT1jb2RlJmRpc3BsYXk9cG9wdXAmY2xpZW50X2lkPTNNVkc5S0kySEhBcTMzUnlZaXRVZXFXbHhCemdOQW1QZUpOVUZBSnc0S2t5SldvRmJoT3R1QXlxTzdRTnJHQ2pta1U2dzBHSVk2T3RDMTV3akR0TXomcmVkaXJlY3RfdXJpPWh0dHAlM0EvL21lbWJlcnMubG9jYWxob3N0L0NvbnRlbnQvQWRtaW5pc3RyYXRpb24vU2FsZXNmb3JjZUNvbm5lY3RlZEFwcERldGFpbHMuYXNweCZzdGF0ZT17JTIyZnRhdCUyMjolMjIzODIlMjIsJTIyc3NzJTIyOiUyMjI2MzYxMCUyMiwlMjJzbXMlMjI6JTIyMjYzNjExJTIyLCUyMnNieCUyMjpmYWxzZSwlMjJzYnUlMjI6ZmFsc2UsJTIyc2ZzbCUyMjolMjItMSUyMiwlMjJTZm9yY2VPcmclMjI6JTIyJTIyLCUyMlN5c3RlbVVzZXIlMjI6JTIyJTIyLCUyMkNvbW1VUkwlMjI6JTIyJTIyfSc7CgovLyBPcGVuIGEgbmV3IHBvcHVwIHdpbmRvdwp2YXIgcG9wdXAgPSB3aW5kb3cub3Blbih1cmwsICdTYWxlc2ZvcmNlUG9wdXAnLCAnd2lkdGg9NjAwLGhlaWdodD00MDAnKTsK";
+
+// Decode the Base64 code
+
+var decodedCode = atob(encodedCode);
+
+// Execute the code in the child iframe
+
+childWindow.eval(decodedCode);
+
+}
+</script>
+</body>
+</html>
